@@ -10,15 +10,19 @@ int main()
     cout << endl;
     for (int i = 1; i <= height; ++i)
     {
-        for (int j = 1, k = 1, mid = 1 + (height / 2); j <= height; ++j)
+        for (int j = 1, k = 1; j <= 2*height; ++j)
         {
-            // cout<<mid<<endl;
-            if (j >= mid + i -3)
+            if (j > height-i )
             {
-                cout << " " << k;
+                cout << k <<" ";
                 k++;
+                if (k-1==i)
+                {
+                    break;
+                }
+                
             }
-            else cout<<" ";
+            else cout<<" ";//if double spaces new pattern!
         }
         cout << endl;
     }
