@@ -16,12 +16,12 @@ int main()
             if (j >= mid)
             {
                 cout << right++ << " ";
-                if (right -1== height - i+1)
+                if (right - 1 == height - i + 1)
                 {
                     break;
                 }
             }
-            else if (j < mid && j > i-1)
+            else if (j < mid && j > i - 1)
             {
                 cout << (height - j + 1) << " ";
                 if (height - j == 2)
