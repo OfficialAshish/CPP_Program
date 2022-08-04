@@ -1,6 +1,10 @@
-
+#include <iostream>
+#include <cmath>
+// #include <bits/stdc++.h>
+#include "Complex.h"
 using namespace std;
-
+using namespace complex_lrn;
+/*
 class Complex
 {
 private:
@@ -38,3 +42,41 @@ public:
         return mod;
     }
 };
+*/
+
+int main()
+{
+    Complex a(3.4, 5.4);
+    a.modulus();
+    a.print();
+
+    a.setComplex(5, 5);
+    a.print();
+    // cout << "\nSQRT( x^2 + y^2 ) = " << a.modulus() << endl;
+    cout << endl;
+
+    Complex b;
+    cout << "\n1-Complex b; : ";
+    b.print();
+    cout << endl;
+
+    Complex c(2.3, 4.5);
+
+    cout << "\nComplex c(.,.) : ";
+    c.print();
+    cout << endl;
+
+    Complex d = c;
+
+    cout << "\nComplex d=c(.,.) @definn. : ";
+    d.print();
+    cout << endl;
+
+    
+    b = a;
+    cout << "\n2-Complex b=a (updt frm deflt): ";
+    b.print();
+    cout << endl;
+
+    return 0;
+}
