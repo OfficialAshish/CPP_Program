@@ -28,8 +28,8 @@ namespace nm_Radix
         {
             for (size_t i = 1; bin != 0; bin = bin / 10, i *= 2)
             {
-                answer += (bin % 10) * i;
-                // cout<<i<<"&"<<bin%10<<endl;
+                answer += ((bin % 10) * i);
+                // cout << i << "&" << bin % 10 << endl;
             }
             return answer;
         }
@@ -38,7 +38,8 @@ namespace nm_Radix
         {
             for (size_t i = 1; oct != 0; oct /= 10, i *= 8)
             {
-                answer += (oct % 8) * i;
+                answer += (oct % 10) * i;
+                cout << i << "&" << oct % 10 << endl;
             }
             return answer;
         }
