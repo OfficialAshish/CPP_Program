@@ -16,22 +16,13 @@ namespace nm_Radix__
         int answer;
         string answerHex;
 
-        void reverse(vector<int> &arr)
+        void reverse(auto &arr)
         {
-            // int ansr = 0;
-            // while (arr > 0)
-            // {
-            //     ansr = (ansr * 10) + (arr % 10);
-            //     arr /= 10;
-            // }
-            // answer = ansr;
-            // return answer;
-
             int length = arr.size();
 
-            for (int i = 0; i < length / 2; i++)
+            for (auto i = 0; i < length / 2; i++)
             {
-                int temp = arr[i];
+                auto temp = arr[i];
                 arr[i] = arr[length - i - 1];
                 arr[length - i - 1] = temp;
             }
@@ -137,19 +128,37 @@ namespace nm_Radix__
             return answer;
         }
 
-        /*
-        string decimalToHexadeciaml(int dec)
+        string decimalToHexadecimal(int dec)
         {
-            answer = 0;
-            vector <string> arr;
-            while (dec>0)
+            answerHex = "";
+            string temp = "";
+            vector<string> arr;
+            int rem = 0;
+            while (dec > 0)
             {
                 rem = dec % 16;
-                arr.push_back(rem);
-                dec/=10;
+                if (rem >= 10)
+                {
+                    temp = rem - 10 + 'A';
+                }
+                else
+                {
+                    temp = to_string(rem);
+                }
+
+                arr.push_back(temp);
+                dec /= 16;
             }
+            reverse(arr);
+            // converting to str
+            for (int i = 0; i < arr.size(); i++)
+            {
+                answerHex = answerHex + arr[i];
+            }
+
+            // answerHex = (arr);
+            return answerHex;
         }
-        */
     };
 
     conversion::~conversion()

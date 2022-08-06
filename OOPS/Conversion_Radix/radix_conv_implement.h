@@ -20,6 +20,18 @@ namespace nm_Radix_
         return conversion::answer;
     }
 
+    void conversion::reverse(auto &arr)
+    {
+        int length = arr.size();
+
+        for (auto i = 0; i < length / 2; i++)
+        {
+            auto temp = arr[i];
+            arr[i] = arr[length - i - 1];
+            arr[length - i - 1] = temp;
+        }
+    }
+
     int conversion::binaryToDecimal(int bin)
     {
         for (size_t i = 1; bin != 0; bin = bin / 10, i *= 2)
@@ -109,26 +121,42 @@ namespace nm_Radix_
         return conversion::answer;
     }
 
-    /*
-    string decimalToHexadeciaml(int dec)
+    string conversion::decimalToHexadecimal(int dec)
     {
-        conversion::answer = 0;
-        vector <string> arr;
-        while (dec>0)
+        answerHex = "";
+        string temp = "";
+        vector<string> arr;
+        int rem = 0;
+        while (dec > 0)
         {
             rem = dec % 16;
-            arr.push_back(rem);
-            dec/=10;
+            if (rem >= 10)
+            {
+                temp = rem - 10 + 'A';
+            }
+            else
+            {
+                temp = to_string(rem);
+            }
+
+            arr.push_back(temp);
+            dec /= 16;
         }
+        reverse(arr);
+        // converting to str
+        for (int i = 0; i < arr.size(); i++)
+        {
+            answerHex = answerHex + arr[i];
+        }
+        return answerHex;
     }
-    */
+};
 
-    int conversion::~conversion()
-    {
-        (DEBUG == true) ? cout << "\nInside Destructor. \n" : cout << "";
-    }
-
+conversion::~conversion()
+{
+    (DEBUG == true) ? cout << "\nInside Destructor. \n" : cout << "";
 }
+// }
 // namespace nm_Radix
 
 #endif // _Radix_Implementation_

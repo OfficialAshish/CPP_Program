@@ -13,24 +13,13 @@ namespace nm_Radix
         string answerHex;
 
     public:
-        // void reverse(vector<int>&);
-        void reverse(vector<int> &arr)
-        {
-            int length = arr.size();
-            for (int i = 0; i < length / 2; i++)
-            {
-                int temp = arr[i];
-                arr[i] = arr[length - i - 1];
-                arr[length - i - 1] = temp;
-            }
-        }
-
-    public:
         conversion();
 
         ~conversion();
 
-        int getAns(); // { return answer; }
+        int getAns();
+
+        void reverse(auto &);
 
         int binaryToDecimal(int bin);
 
@@ -38,8 +27,12 @@ namespace nm_Radix
 
         int hexadecimalToDecimal(string hex);
 
+        //decimal to ...
+
         int decimalToBinary(int dec);
 
         int decimalToOctal(int dec);
+
+        string decimalToHexadecimal(int dec);
     };
 }
