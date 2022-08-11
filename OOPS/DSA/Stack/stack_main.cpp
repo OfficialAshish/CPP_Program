@@ -1,63 +1,60 @@
 #include <iostream>
-#include "linked_list.h"
+#include "stack_u.h"
 
 using namespace std;
-using namespace nm_linkedList;
+using namespace nm_stack;
 
 int main()
 {
     int option = -1;
-    List lst;
-    while (option != 6 and option != 0)
+    Stack lst;
+    while (option != 5 and option != 0)
     {
-        cout << "\n* LINKED LIST *\n";
-        cout << "\nSelect Opration to perform on list!\n";
-        cout << "\n1 : Add Element.\n";
-        cout << "\n2 : Print List.\n";
-        cout << "\n3 : Delete Element or Node.\n";
-        cout << "\n4 : Reverse List.\n";
-        cout << "\n5 : Reverse Print.\n";
-        cout << "\n6 : Exit Program!.\n";
+        cout << "\n* Stack(linkedList) *\n";
+        cout << "\nSelect Opration to perform on Stack!\n";
+        cout << "\n1 : Insert.\n";
+        cout << "\n2 : Delete Element (POP).\n";
+        cout << "\n3 : Top most element. (TOP).\n";
+        cout << "\n4 : Print Stack.\n";
+        cout << "\n5 : Exit Program!.\n";
         cout << "\nSELECT Option : ";
         cin >> option;
+        int i = 0;
+        if (option == 1)
+        {
+            cout << "\nEnter Element : ";
+            cin >> i;
+        }
 
         switch (option)
         {
         case 1:
-            lst.addingNodes();
+            lst.insert(i);
             getchar();
             cout << "\nPress Enter to Continue...";
             getchar();
             break;
         case 2:
-            lst.printList();
+            cout << "\nElement Poped. *";
+            cout << lst.pop() ;
             getchar();
             cout << "\nPress Enter to Continue...";
             getchar();
             break;
         case 3:
-            lst.deleteNode();
+            cout << lst.top();
             getchar();
             cout << "\nPress Enter to Continue...";
             getchar();
             break;
         case 4:
-            lst.reverseList();
+            lst.printStack();
             getchar();
             cout << "\nPress Enter to Continue...";
             getchar();
             break;
+
         case 5:
-            cout << "\nRevrs.List : { ";
-            lst.printListReverse(lst.getHead());
-            cout << " }\n";
-            getchar();
-            cout << "\nPress Enter to Continue...";
-            getchar();
-
-            break;
-
-        case 6:
             cout << "\nExiting Program!!!\n";
             // deallocation...
             deallocateNodes(lst.getHead());
@@ -68,7 +65,7 @@ int main()
         default:
             cout << "\n"
                  << option << "Wrong option selected !... Try again, \n ";
-                break;
+            break;
         }
     }
 

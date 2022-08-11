@@ -1,6 +1,5 @@
 #include <iostream>
 #include "linked_list.h"
-// #include <bits/stdc++>
 
 using namespace std;
 using namespace nm_linkedList;

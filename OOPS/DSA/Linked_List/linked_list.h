@@ -18,11 +18,11 @@ namespace nm_linkedList
         Node *nodePointer;
         Node(int i = 0) : info(i), nextNode(0)
         {
-            cout << "\nInitz...\n";
+            // cout << "\nNode Allocated...\n";
         }
         ~Node()
         {
-            cout << "\nDestroyed Node.\n";
+            // cout << "\nDestroyed Node.\n";
             // delete nodePointer;
         }
         Node *getNodeAddr() { return nodePointer; }
@@ -33,7 +33,7 @@ namespace nm_linkedList
         friend Node *allocNode(int);
         friend void deallocateNodes(Node *tmp);
     };
-    Node *allocNode(int info = 6)
+    Node *allocNode(int info = 0)
     {
         Node *tmpPoint;
         tmpPoint = new Node();
