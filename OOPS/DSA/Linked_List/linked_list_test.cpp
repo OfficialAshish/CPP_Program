@@ -17,7 +17,7 @@ int main()
     lst.addNode(&n6);
     lst.appendNode(&n8);
     lst.appendNode(&n9);
-    lst.addNode(&n7, 2);
+    // lst.addNode(&n7, 2);
 
     //WRONG WAY TO INTIZ
     // Node *n10;
