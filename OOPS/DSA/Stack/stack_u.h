@@ -16,11 +16,11 @@ namespace nm_stack
         Node *nodePointer;
         Node(int i = 0) : info(i), nextNode(0)
         {
-            cout << "\nNode Allocated...\n";
+            // cout << "\nNode Allocated...\n";
         }
         ~Node()
         {
-            cout << "\nDestroyed Node.\n";
+            // cout << "\nDestroyed Node.\n";
             // delete nodePointer;
         }
         Node *getNodeAddr() { return nodePointer; }

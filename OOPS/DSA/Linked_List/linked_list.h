@@ -87,13 +87,20 @@ namespace nm_linkedList
 
     void List::appendNode(Node *nd)
     {
-        Node *tempIterator = listHead;
-        while (tempIterator->nextNode != NULL)
+        if (listHead == NULL)
         {
-            tempIterator = tempIterator->nextNode;
+            listHead = nd;
         }
-        tempIterator->nextNode = nd;
-        countNodes++;
+        else
+        {
+            Node *tempIterator = listHead;
+            while (tempIterator->nextNode != NULL)
+            {
+                tempIterator = tempIterator->nextNode;
+            }
+            tempIterator->nextNode = nd;
+            countNodes++;
+        }
     }
 
     void List::addNode(Node *nd, int n)
