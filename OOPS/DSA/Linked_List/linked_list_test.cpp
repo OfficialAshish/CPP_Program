@@ -32,7 +32,8 @@ int main()
     tmpPoint->nodePointer = tmpPoint;
     cout << tmpPoint->nodePointer << endl;
     cout << tmpPoint->getInfo() << endl;
-    cout << tmpPoint->getNextNode() << endl;
+    cout << tmpPoint << endl;
+    cout << tmpPoint->nodePointer<<endl;
 
     Node *p = allocNode(60);
     cout<<p->nodePointer<<endl;

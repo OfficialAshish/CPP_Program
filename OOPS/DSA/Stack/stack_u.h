@@ -21,11 +21,10 @@ namespace nm_stack
         ~Node()
         {
             // cout << "\nDestroyed Node.\n";
-            // delete nodePointer;
         }
-        Node *getNodeAddr() { return nodePointer; }
-        int getInfo() { return info; }
-        Node *getNextNode() { return nextNode; }
+        // Node *getNodeAddr() { return nodePointer; }
+        // int getInfo() { return info; }
+        // Node *getNextNode() { return nextNode; }
 
         friend class Stack;
         friend Node *allocNode(int);
@@ -34,9 +33,7 @@ namespace nm_stack
     Node *allocNode(int info = 0)
     {
         Node *tmpPoint;
-        tmpPoint = new Node();
-        tmpPoint->info = info;
-        tmpPoint->nextNode = NULL;
+        tmpPoint = new Node(info);
         tmpPoint->nodePointer = tmpPoint;
         return tmpPoint;
     }

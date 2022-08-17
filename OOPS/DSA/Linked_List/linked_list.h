@@ -36,9 +36,9 @@ namespace nm_linkedList
     Node *allocNode(int info = 0)
     {
         Node *tmpPoint;
-        tmpPoint = new Node();
-        tmpPoint->info = info;
-        tmpPoint->nextNode = NULL;
+        tmpPoint = new Node(info);
+        // tmpPoint->info = info;
+        // tmpPoint->nextNode = NULL;
         tmpPoint->nodePointer = tmpPoint;
         return tmpPoint;
     }
@@ -48,6 +48,7 @@ namespace nm_linkedList
         {
             Node *next = tmp->nextNode;
             delete tmp;
+            cout<<"*";
             tmp = next;
         }
     }
