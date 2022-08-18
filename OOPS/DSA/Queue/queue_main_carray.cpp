@@ -1,6 +1,6 @@
 #include <iostream>
 #include "queue_ll.h"
-#define SIZE 8
+#define SIZE 4
 using namespace std;
 
 class c_queue
@@ -12,59 +12,68 @@ class c_queue
 public:
     c_queue() : front(-1), rear(-1)
     {
-        for (int i = 0; i < SIZE; arr[i] = 0, i++);
+        for (int i = 0; i < SIZE; arr[i] = 0, i++)
+            ;
         cout << "\nContr..\n";
     }
     ~c_queue() { cout << "\nDestr..\n"; }
 
     bool isempty() { return rear == -1; }
-    int frontElem() { return front; }
-    int rearElem() { return rear; }
+    int frontElem() { return arr[front]; }
+    int rearElem() { return arr[rear]; }
 
     void enQueue(int dt)
     {
         if (front == -1)
         {
-            front == rear == 0;
-            arr[front] = dt;
+            front = rear = 0;
         }
-        else if (rear == SIZE - 1)
+        else if ((rear + 1) % SIZE == front)
         {
             cout << "\nQueue is Full.\n";
+            return;
         }
         else
         {
-            arr[++rear] = dt;
+            rear = (rear + 1) % SIZE;
         }
+        arr[rear] = dt;
     }
 
     int deQueue()
     {
         int tmpout;
-        if (front == rear)
+        if (front == rear and front != -1)
         {
             tmpout = arr[front];
             arr[front] = 0;
             front = rear = -1;
+            cout << "\nElement Poped. * ";
             return tmpout;
         }
         else if (rear == -1)
         {
             cout << "\nQueue is Empty!.\n";
+            return -1;
         }
-
-        tmpout = arr[front];
-        arr[front] = 0;
-        front++;
-        return tmpout;
-    }
-    void print()
-    {
-        cout << "\nQueue is :\n { ";
-        for (int i = front; i <= rear; i++)
+        else
         {
-            cout << arr[front] << " ,";
+            tmpout = arr[front];
+            arr[front] = 0;
+            front = (front + 1) % SIZE;
+            cout << "\nElement Poped. * ";
+            return tmpout;
         }
+    }
+    void print()//issue
+    {
+        int i;
+        cout << "\nQueue is :\n { ";
+        for (int i = front; i != rear; i = i + (front + 1) % SIZE)
+        {
+            cout << arr[i] << " ,";
+        }
+        cout << arr[i] << " ,";//equal fr == rear/
         cout << " }\n";
     }
 };
@@ -101,7 +110,6 @@ int main()
             getchar();
             break;
         case 2:
-            cout << "\nElement Poped. *";
             cout << cArr.deQueue();
             getchar();
             cout << "\nPress Enter to Continue...";
@@ -120,7 +128,7 @@ int main()
             getchar();
             break;
         case 5:
-            cArr.print();
+            cArr.print();//error
             getchar();
             cout << "\nPress Enter to Continue...";
             getchar();
