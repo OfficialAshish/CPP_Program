@@ -27,7 +27,7 @@ namespace nm_Radix
 
         int hexadecimalToDecimal(string hex);
 
-        //decimal to ...
+        // decimal to ...
 
         int decimalToBinary(int dec);
 
@@ -36,3 +36,4 @@ namespace nm_Radix
         string decimalToHexadecimal(int dec);
     };
 }
+#endif

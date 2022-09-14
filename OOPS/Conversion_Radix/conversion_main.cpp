@@ -1,5 +1,4 @@
 #include <iostream>
-// #include "radix_conv_interface.h"
 // #include "radix_conv_implement.h"
 #include "radix_conv_implement_temp.h"
 
@@ -15,15 +14,23 @@ int main()
     // cout << octtodec1.octalToDecimal(777);
     // cout << endl;
 
-    conversion hextodec;
-    cout << hextodec.hexadecimalToDecimal("2Af4");
+    // conversion hextodec;
+    // cout << hextodec.hexadecimalToDecimal("2Af4");
     cout << endl;
     // printf("\n%X",10996);//o,x,X
 
     conversion allconv;
-    cout << allconv.decimalToBinary(4) << endl;
+    // cout << allconv.decimalToBinaryL(45589) << endl;
+    cout << "dec:" << allconv.octalToDecimal(2064) << endl;
+    cout << allconv.decimalToBinary((allconv.octalToDecimal(2064))) << endl;
+    allconv.anyToBinaryLP(0x434);
+    cout << endl;
+    allconv.anyToBinaryLP(1076);
 
-    cout << allconv.decimalToHexadecimal(10996);
+    printf("\nOctal: %o \n", 0x434);
+    printf("Octal: %X \n", 1076);
+
+    // cout << allconv.decimalToHexadecimal(10996);
 
     return 0;
 }

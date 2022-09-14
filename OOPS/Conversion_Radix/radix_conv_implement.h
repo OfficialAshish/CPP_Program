@@ -4,16 +4,15 @@
 #define DEBUG true
 
 #include "radix_conv_interface.h"
-#pragma once
+// #pragma once
 
 #include <vector>
 #include <string>
 using namespace std;
+using namespace nm_Radix;
 
 namespace nm_Radix_
 {
-
-    using namespace nm_Radix;
 
     int conversion::getAns()
     {
@@ -150,13 +149,14 @@ namespace nm_Radix_
         }
         return answerHex;
     }
+
+    conversion::~conversion()
+    {
+        (DEBUG == true) ? cout << "\nInside Destructor. \n" : cout << "";
+    }
 };
 
-conversion::~conversion()
-{
-    (DEBUG == true) ? cout << "\nInside Destructor. \n" : cout << "";
-}
-// }
-// namespace nm_Radix
+    // }
+    // namespace nm_Radix
 
 #endif // _Radix_Implementation_
