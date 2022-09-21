@@ -2,8 +2,6 @@
 #ifndef _Linked_list_
 #define _Linked_list_
 
-// #include <vector>
-
 namespace nm_linkedList
 {
     using namespace std;
@@ -48,7 +46,7 @@ namespace nm_linkedList
         {
             Node *next = tmp->nextNode;
             delete tmp;
-            cout<<"*";
+            cout << "*";
             tmp = next;
         }
     }

@@ -68,7 +68,7 @@ int main()
         default:
             cout << "\n"
                  << option << "Wrong option selected !... Try again, \n ";
-                break;
+            break;
         }
     }
 
