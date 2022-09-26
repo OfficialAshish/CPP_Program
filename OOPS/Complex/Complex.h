@@ -1,17 +1,14 @@
-
 #ifndef _complex_
 #define _complex_
-
 
 // for output details
 // complex : i , re_
 // (inherited above)anotherComplex : t(private), l(public) , _re
 
-
 namespace complex_1
 {
     using namespace std;
-    
+
     class Complex
     {
     protected:
@@ -45,19 +42,26 @@ namespace complex_1
             cout << "\nPrinting Complex No. (i) :    " << real << " + i" << imag << endl;
         }
 
-        int modulus()
+        float modulus()
         {
-            int mod = sqrt(pow(real, 2) + pow(imag, 2));
+            float mod = sqrt((real * real) + (imag * imag));
             return mod;
         }
-        friend ostream &operator<<(ostream &, const Complex cx);
+        friend bool operator>(const Complex &c1, const Complex &c2) { return (c1.modulus() > c2.modulus()); }
+        friend friend ostream &operator<<(ostream &, const Complex cx);
     };
+
+    ostream &operator<<(ostream &os, const Complex cx)
+    {
+        cx.print();
+        return os;
+    }
 
     class anotherComplex : public Complex
     {
     private:
         char imagVariable; // using extra variable here
-    
+
     public:
         // overload ambiguous if using default arg some
         anotherComplex(double _re, double _im)
@@ -85,12 +89,6 @@ namespace complex_1
         }
         friend ostream &operator<<(ostream &os, const anotherComplex cx);
     };
-
-    ostream &operator<<(ostream &os, const Complex cx)
-    {
-        cx.print();
-        return os;
-    }
 
     ostream &operator<<(ostream &os, const anotherComplex cx)
     {

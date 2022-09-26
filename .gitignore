@@ -7,5 +7,9 @@ Learning/Programs/leetcode/
 OOPS/DSA/Expression_fix/
 OOPS/DSA/Linked_List/Test/
 
+#hide all templates
+Template/
+Templates/
+
 #code
 shop_management.cpp
