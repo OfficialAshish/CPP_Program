@@ -12,7 +12,7 @@ protected:
 
 public:
     Node *nodeAddr;
-    Node(string n = "EMPTY") : nextNode(0), prevNode(0), data(n), nodeAddr(this) { cout << "\nConstructor..\n"; }
+    Node(string n = "EMPTY") : nextNode(NULL), prevNode(NULL), data(n), nodeAddr(this) { cout << "\nConstructor..\n"; }
     ~Node()
     { /* cout << "\ndestructor..\n"; */
     }
@@ -278,7 +278,25 @@ void List::updateData()
         ;
     tmpHead->data = str;
 }
-void List::reverseList()
+
+/* void List::reverseList()
+{
+    Node *tmp = getHead();
+    Node *tmpNext = tmp;
+    Node *tmpSwap = tmp;
+    while (tmpNext)
+    {
+        tmp = tmpNext;
+        tmpNext = tmpNext->nextNode;
+
+        tmpSwap = tmp->nextNode;
+        tmp->nextNode = tmp->prevNode;
+        tmp->prevNode = tmpSwap;
+    }
+    cout << "\nDone...\n";
+} */
+
+/* void List::reverseList()
 {
     Node *tmpHead = getHead();
     Node *tmpPrev = NULL;
@@ -291,7 +309,8 @@ void List::reverseList()
         tmpPrev = tmpNext;
         tmpHead = tmpHead;
     }
-}
+} */
+
 void List::printList()
 {
     Node *tmp = getHead();
