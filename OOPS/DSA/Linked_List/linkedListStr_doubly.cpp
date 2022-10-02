@@ -213,7 +213,7 @@ againPos:
         tmpHead->nextNode->prevNode = tmpHead->prevNode;
         tmpHead->prevNode->nextNode = tmpHead->nextNode;
         delete tmpHead;
-        cout << "deleted!\n";
+        cout << "Deleted!\n";
     }
     else if (n == 1)
     {
@@ -221,14 +221,14 @@ againPos:
         {
             listHead = NULL;
             delete tmpHead;
-            cout << "deleted!\n";
+            cout << "Deleted!\n";
         }
         else
         {
             listHead = tmpHead->nextNode;
             listHead->prevNode = NULL;
             delete tmpHead;
-            cout << "deleted!\n";
+            cout << "Deleted!\n";
         }
     }
     else if (n == countNodes)
@@ -238,15 +238,20 @@ againPos:
         {
             listTail = NULL;
             delete tmptail;
-            cout << "deleted!\n";
+            cout << "Deleted!\n";
         }
         else
         {
             listTail = listTail->prevNode;
             listTail->nextNode = NULL;
             delete tmptail;
-            cout << "deleted!\n";
+            cout << "Deleted!\n";
         }
+    }
+    else if (n == 0)
+    {
+        cout << "\nList is Empty ...\n";
+        return;
     }
     else
     {
