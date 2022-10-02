@@ -113,22 +113,19 @@ void Polyn::creatPoly()
 {
     int ch = 1;
     Term *newTerm = NULL;
+    Term *tailTerm = NULL;
     do
     {
         newTerm = allocTerms();
-
-        Term *tmpHead = HeadToPolyn;
         if (!HeadToPolyn)
         {
             HeadToPolyn = newTerm;
+            tailTerm = newTerm;
         }
         else
         {
-            while (tmpHead->next)
-            {
-                tmpHead = tmpHead->next;
-            }
-            tmpHead->next = newTerm;
+            tailTerm->next = newTerm;
+            tailTerm = newTerm;
         }
 
         cout << "\nWant to add more terms(0/1) : ";
@@ -144,9 +141,9 @@ Polyn &Polyn::addition(Polyn &p2)
     Term *p2_head = p2.HeadToPolyn;
     Term *p3_tmp = allocTerms(0);
     p3.HeadToPolyn = p3_tmp;
-    while (p1_head && p2_head)
+    while (p1_head or p2_head)
     {
-        if (p1_head->next && p2_head->next)
+        if (p1_head->next or p2_head->next)
             p3_tmp->next = allocTerms(0);
         if (p1_head->exp == p2_head->exp)
         {
@@ -182,9 +179,9 @@ Polyn &Polyn::substraction(Polyn &p2)
     Term *p2_head = p2.HeadToPolyn;
     Term *p3_tmp = allocTerms(0);
     p3.HeadToPolyn = p3_tmp;
-    while (p1_head && p2_head)
+    while (p1_head or p2_head)
     {
-        if (p1_head->next && p2_head->next)
+        if (p1_head->next or p2_head->next)
             p3_tmp->next = allocTerms(0);
         if (p1_head->exp == p2_head->exp)
         {
