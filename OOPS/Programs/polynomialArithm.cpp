@@ -72,8 +72,8 @@ void Polyn::deallocTerms()
 Term *allocTerms(int cof)
 {
     Term *tmpTerm = new Term();
-    tmpTerm->coeff = 0;
-    tmpTerm->exp = 0;
+    tmpTerm->coeff = cof;
+    // tmpTerm->exp = 0;
     return tmpTerm;
 }
 
@@ -216,6 +216,7 @@ Polyn &Polyn::substraction(Polyn &p2)
 int main(int argc, char const *argv[])
 {
     Polyn p1, p2;
+
     /*
     Term t1, t2, t3;
     Term r1, r2, r3;
@@ -243,6 +244,7 @@ int main(int argc, char const *argv[])
     p2.addTerm(&r3);
     */
 
+    // comment these 4lines, and uncomment above for defalut polynomial..
     cout << "\nEnter p1:\n";
     p1.creatPoly();
     cout << "\nEnter p2:\n";
