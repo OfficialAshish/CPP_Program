@@ -19,7 +19,7 @@ public:
 
     friend class Polyn;
     friend Term *allocTerms();
-    friend Term *allocTerms(int);
+    friend Term *allocTerms(int); // overload
 };
 
 class Polyn
