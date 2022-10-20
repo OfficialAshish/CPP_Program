@@ -28,17 +28,17 @@ int main()
     }
 
     // reverse
-    for (int i = 0; i < height; i++)
+    for (int i = 1; i <= height; i++)
     {
-        for (int j = height - i - 1; j > 0; --j)
+        for (int j = height - i; j > 0; --j)
         {
             cout << "  ";
         }
-        for (int k = i + 1; k >= 2; --k)
+        for (int k = i; k >= 2; --k)
         {
             cout << k << " ";
         }
-        for (int l = 1; l <= i + 1; ++l)
+        for (int l = 1; l <= i; ++l)
         {
             cout << l << " ";
         }

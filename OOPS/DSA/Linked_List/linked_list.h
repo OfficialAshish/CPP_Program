@@ -235,7 +235,7 @@ namespace nm_linkedList
         {
             Node *tempIterator = listHead;
             cout << "\nList : { ";
-            while (!!tempIterator) //!!opt
+            while (!!tempIterator) //!!optional
             {
                 // cout << tempIterator << ",@: ";
                 cout << tempIterator->info << ", ";
@@ -260,14 +260,14 @@ namespace nm_linkedList
 
     void List::reverseList()
     {
-        Node *iterc = listHead;
+        Node *tmpHead = listHead;
         Node *prevNd = NULL;
-        while (iterc)
+        while (tmpHead)
         {
-            Node *nextNd = iterc->nextNode;
-            iterc->nextNode = prevNd;
-            prevNd = iterc;
-            iterc = nextNd;
+            Node *nextNd = tmpHead->nextNode;
+            tmpHead->nextNode = prevNd;
+            prevNd = tmpHead;
+            tmpHead = nextNd;
         }
         listHead = prevNd;
     }

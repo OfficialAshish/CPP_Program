@@ -7,7 +7,7 @@ using namespace nm_stack;
 int main()
 {
     int option = -1;
-    Stack lst;
+    Stack_ lst;
     while (option != 5 and option != 0)
     {
         cout << "\n* Stack(linkedList) *\n";
@@ -36,7 +36,7 @@ int main()
             break;
         case 2:
             cout << "\nElement Poped. *";
-            cout << lst.pop() ;
+            cout << lst.pop();
             getchar();
             cout << "\nPress Enter to Continue...";
             getchar();

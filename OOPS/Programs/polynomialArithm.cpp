@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <Stack>
 using namespace std;
 
 class Term
@@ -10,7 +10,7 @@ public:
     Term *next;
 
 public:
-    Term() : coeff(0), exp(0), next(NULL)
+    Term() : coeff(1), exp(0), next(NULL)
     { /*  cout << "\nconstr..\n"; */
     }
     ~Term()

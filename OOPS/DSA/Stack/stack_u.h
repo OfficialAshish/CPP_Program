@@ -26,7 +26,7 @@ namespace nm_stack
         // int getInfo() { return info; }
         // Node *getNextNode() { return nextNode; }
 
-        friend class Stack;
+        friend class Stack_;
         friend Node *allocNode(int);
         friend void deallocateNodes(Node *tmp);
     };
@@ -47,15 +47,15 @@ namespace nm_stack
         }
     }
 
-    class Stack
+    class Stack_
     {
     protected:
         Node *listHead;
         int countNodes;
 
     public:
-        Stack(Node *head = 0) : listHead(head), countNodes(0) { cout << "\nStack Intiz..\n"; }
-        ~Stack() { cout << "\nStack Remv.\n"; }
+        Stack_(Node *head = 0) : listHead(head), countNodes(0) { cout << "\nStack Intiz..\n"; }
+        ~Stack_() { cout << "\nStack Remv.\n"; }
 
         Node *getHead() { return listHead; }
         int getNodesTot() { return countNodes; }
@@ -63,12 +63,11 @@ namespace nm_stack
         void insert(int i);
         int pop();
         int top();
-        bool isempty(){ return listHead == NULL;}
+        bool isempty() { return listHead == NULL; }
         void printStack();
     };
 
-
-    void Stack::insert(int i)
+    void Stack_::insert(int i)
     {
         Node *nd = allocNode(i);
         nd->nextNode = listHead;
@@ -76,7 +75,7 @@ namespace nm_stack
         countNodes++;
     }
 
-    int Stack::pop()
+    int Stack_::pop()
     {
         if (listHead == NULL)
         {
@@ -94,7 +93,7 @@ namespace nm_stack
         }
     }
 
-    int Stack::top()
+    int Stack_::top()
     {
         if (listHead == NULL)
         {
@@ -107,27 +106,26 @@ namespace nm_stack
         }
     }
 
-
-void Stack::printStack()
-{
-    if (listHead == NULL)
+    void Stack_::printStack()
     {
-        cout << "\nList is Empty\n";
-        return;
-    }
-    else
-    {
-        Node *tempIterator = listHead;
-        cout << "\nStack : { ";
-        while (!!tempIterator) //!!opt
+        if (listHead == NULL)
         {
-            // cout << tempIterator << ",@: ";
-            cout << tempIterator->info << ", ";
-            tempIterator = tempIterator->nextNode;
+            cout << "\nList is Empty\n";
+            return;
         }
-        cout << " }\n";
+        else
+        {
+            Node *tempIterator = listHead;
+            cout << "\nStack : { ";
+            while (!!tempIterator) //!!opt
+            {
+                // cout << tempIterator << ",@: ";
+                cout << tempIterator->info << ", ";
+                tempIterator = tempIterator->nextNode;
+            }
+            cout << " }\n";
+        }
     }
-}
 } // namespace nm_stack
 
 #endif

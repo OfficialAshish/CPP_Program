@@ -24,10 +24,10 @@ int main()
             else if (j < mid && (j > mid - i))
             {
                 cout << (left--) << " ";
-                if (left + 1 == 2)
+                /* if (left + 1 == 2)
                 {
                     continue;
-                }
+                } */
             }
             else if (j < mid)
             {

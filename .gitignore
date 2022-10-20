@@ -1,8 +1,8 @@
 .vscode
 
 Testing/
-Learning/
-Learning/Programs/leetcode/
+# Learning/
+# Learning/Programs/leetcode/
 
 OOPS/DSA/Expression_fix/
 OOPS/DSA/Linked_List/Test/
@@ -13,3 +13,5 @@ Templates/
 
 #code
 shop_management.cpp
+shop_management_file.cpp
+
