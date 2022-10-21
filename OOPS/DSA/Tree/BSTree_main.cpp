@@ -8,14 +8,15 @@ int main()
 {
     int option = -1;
     binaryTree bnTree;
-    while (option != 4 and option != 0)
+    while (option != 5 and option != 0)
     {
         cout << "\n* Binary Tree(linkedList) *\n";
         cout << "\nSelect Opration to perform on Binary Tree!\n";
         cout << "\n1 : Insert Element. \n";
         // cout << "\n2 : Delete Element.\n";
         cout << "\n3 : Print Binary Tree.\n";
-        cout << "\n4 : Exit Program!.\n";
+        cout << "\n4 : Search Element.\n";
+        cout << "\n5 : Exit Program!.\n";
         cout << "\nSELECT Option : ";
         cin >> option;
         int i = 0;
@@ -29,8 +30,9 @@ int main()
             soln : insert non-recursively,or make root public*/
             cout << "\nEnter Element : ";
             cin >> i;
-            tNode *t_root = bnTree.getRoot();
-            bnTree.insert(&bnTree.root, i);
+            // tNode *t_root = bnTree.getRoot();
+            // bnTree.insert(&bnTree.root, i);
+            bnTree.insert(i);
             getchar();
             cout << "\nPress Enter to Continue...";
             getchar();
@@ -46,7 +48,29 @@ int main()
 
         case 3:
         {
-            bnTree.printLevel();
+            int opt = 1;
+            cout << "\n1. Level \n2. InOrder \n3. PreOrder \n4. PostOrder\n";
+            cout << "\nSelect Print Pattern :";
+            cin >> opt;
+            switch (opt)
+            {
+            case 1:
+                bnTree.printLevel();
+                break;
+            case 2:
+                bnTree.printInOrder(bnTree.getRoot());
+                break;
+            case 3:
+                bnTree.printPreOrder(bnTree.getRoot());
+                break;
+            case 4:
+                bnTree.PrintPostOrder(bnTree.getRoot());
+                break;
+
+            default:
+                cout << "\nWrong option!!";
+                break;
+            }
             getchar();
             cout << "\nPress Enter to Continue...";
             getchar();
@@ -54,6 +78,21 @@ int main()
         }
 
         case 4:
+        {
+            int i;
+            cout << "Enter Element to be searched :";
+            cin >> i;
+            if (bnTree.searchElem(i))
+                cout << "Found";
+            else
+                cout << "Not Found";
+            getchar();
+            cout << "\nPress Enter to Continue...";
+            getchar();
+            break;
+        }
+
+        case 5:
         {
             cout << "\nExiting Program!!!\n";
             // deallocation...

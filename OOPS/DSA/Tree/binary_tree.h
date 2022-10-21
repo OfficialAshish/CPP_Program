@@ -76,48 +76,23 @@ namespace nm_binary_tree
         ~binaryTree() { cout << "\nTree Destr..\n"; }
 
         tNode *getRoot() { return root; }
-        // void insert(int);
+        void insert(int);
         void insert(tNode **, int);
-        int minElem();
-        int maxElem();
+        // int minElem();
+        // int maxElem();
         bool searchElem(int);
-        void printLevel();    // breath first
-        void printPreOrder(); // depth first
-        void printInOrder();
-        void PrintPostOrder();
+        void printLevel();           // breath first
+        void printPreOrder(tNode *); // depth first
+        void printInOrder(tNode *);
+        void PrintPostOrder(tNode *);
         // void deleteElem(int val);
     };
-
-    /*
-    void binaryTree::insert(int dt = 0)
-    {
-        tNode *tmproot = root;
-        if (root == NULL)
-        {
-            tNode *tmp = allocNode(dt);
-            root = tmp;
-        }
-        while (tmproot->leftNode)
-        {
-
-        }
-        return tmproot;
-    }*/
-
-    /*  void binaryTree::insert(int dt)
-     {
-         if (root == NULL)
-         {
-             root = allocNode(dt);
-         }
-     } */
 
     void binaryTree::insert(tNode **tmproot, int dt = 0)
     {
         if (*tmproot == NULL)
         {
             *tmproot = allocNode(dt);
-            // cout << "\ntmproot:  "<<*tmproot<<endl;
         }
         else if (dt >= (*tmproot)->data)
         {
@@ -127,6 +102,86 @@ namespace nm_binary_tree
         {
             insert(&(*tmproot)->leftNode, dt);
         }
+    }
+
+    void binaryTree::insert(int dt = 0)
+    {
+        tNode *tmproot = root;
+        tNode *tmpNew = allocNode(dt);
+        if (root == NULL)
+        {
+            root = tmpNew;
+            // tmproot = root; //required when inserting multiple at once
+        }
+        else
+        {
+            while ((tmproot->leftNode != NULL) && (tmproot->rightNode != NULL))
+            {
+                if (dt <= tmproot->data)
+                {
+                    tmproot = tmproot->leftNode;
+                }
+                else
+                {
+                    tmproot = tmproot->rightNode;
+                }
+            }
+            if (!tmproot->leftNode)
+            {
+                tmproot->leftNode = tmpNew;
+            }
+            else
+            {
+                tmproot->rightNode = tmpNew;
+            }
+        }
+        cout << "DONE";
+    }
+
+    bool binaryTree::searchElem(int dt)
+    {
+        tNode *tmproot = root;
+        while (tmproot)
+        {
+            if (dt == tmproot->data)
+                return true;
+            else if (dt < tmproot->data)
+                tmproot = tmproot->leftNode;
+            else
+                tmproot = tmproot->rightNode;
+        }
+        return false;
+    }
+
+    void binaryTree::printInOrder(tNode *tmp)
+    {
+        if (!tmp)
+        {
+            return;
+        }
+        printInOrder(tmp->leftNode);
+        cout << tmp->data << " ";
+        printInOrder(tmp->rightNode);
+    }
+    void binaryTree::printPreOrder(tNode *tmp)
+    {
+        if (!tmp)
+        {
+            return;
+        }
+        cout << tmp->data << " ";
+        printInOrder(tmp->leftNode);
+        printInOrder(tmp->rightNode);
+    }
+    void binaryTree::PrintPostOrder(tNode *tmp)
+    {
+        if (!tmp)
+        {
+            return;
+        }
+        printInOrder(tmp->leftNode);
+        printInOrder(tmp->rightNode);
+        cout << tmp->data << " ";
     }
 
     void binaryTree::printLevel()

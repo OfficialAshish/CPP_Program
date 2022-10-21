@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 /*
@@ -14,7 +15,8 @@ void substring(string st, string ans)
     substring(st.substr(1), ans);
 }
 */
-
+/*
+//combination...
 void substring(string st)
 {
     if (st == "")
@@ -31,10 +33,20 @@ void substring(string st)
     }
     substring(st.substr(1));
 }
+ */
+
+// permutation...
+void substring(string st)
+{
+    do
+    {
+        cout << st << "\n";
+    } while (next_permutation(st.begin(), st.end()));
+}
 
 int main(int argc, char const *argv[])
 {
-    string str = "ABCD";
+    string str = "ABC";
     // substring(str, "");
     substring(str);
     return 0;
