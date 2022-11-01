@@ -17,37 +17,51 @@ int main()
     //     arr_inp.push_back(temp);
     // }
 
-    int ar[10]={ 4, 5, 3, 8, 2, 1, 0, 4, 9, 6};
-    arr_inp.assign(ar, ar+10);
+    int ar[10] = {4, 5, 3, 8, 0, 1, 7, 4, 9, 6};
+    arr_inp.assign(ar, ar + 10);
 
-    Sorting sortSel;
-    sortSel.selectionSort(arr_inp);
+    Sorting_ sortingAl;
+    /*
+        sortingAl.selectionSort(arr_inp);
+        cout << "\nSelection Sort :  ";
+        // cout << endl;
+        for (int i = 0; i < n; i++)
+        {
+            cout << arr_inp[i] << " ";
+        }
 
-    cout<<"\nSelection Sort :  ";
-    // cout << endl;
+        arr_inp.assign(ar, ar + 10);
+        sortingAl.bubbleSort(arr_inp);
+
+        // cout << endl;
+        cout << "\nBubble Sort    : ";
+        for (int i = 0; i < n; i++)
+        {
+            cout << arr_inp[i] << " ";
+        }
+
+        arr_inp.assign(ar, ar + 10);
+        sortingAl.insertionSort(arr_inp);
+
+        // cout << endl;
+        cout << "\nInsertion Sort :  ";
+        for (int i = 0; i < n; i++)
+        {
+            cout << arr_inp[i] << " ";
+        }
+        cout << endl;
+    */
+    // sortingAl.mergeSort(arr_inp, 0, arr_inp.size());
+    // cout << "\nMerge Sort :  ";
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cout << arr_inp[i] << ", ";
+    // }
+
+    sortingAl.quickSort(arr_inp, 0, arr_inp.size() - 1);
+    cout << "\nQuick Sort :  ";
     for (int i = 0; i < n; i++)
     {
-        cout << arr_inp[i] << " " ;
+        cout << arr_inp[i] << ", ";
     }
-
-    arr_inp.assign(ar, ar+10);
-    sortSel.bubbleSort(arr_inp);
-
-    // cout << endl;
-    cout << "\nBubble Sort    : ";
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr_inp[i] << " " ;
-    }
-
-    arr_inp.assign(ar, ar+10);
-    sortSel.insertionSort(arr_inp);
-
-    // cout << endl;
-    cout << "\nInsertion Sort :  ";
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr_inp[i] << " " ;
-    }
-    cout << endl;
 }

@@ -28,7 +28,7 @@ int main()
     allconv.anyToBinaryLP(1076);
 
     printf("\nOctal: %o \n", 0x434);
-    printf("Octal: %X \n", 1076);
+    printf("Octal : %X \n", 1076);
 
     // cout << allconv.decimalToHexadecimal(10996);
 

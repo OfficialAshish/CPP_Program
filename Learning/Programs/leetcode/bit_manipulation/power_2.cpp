@@ -17,3 +17,18 @@ int main(int argc, char const *argv[])
     std::cout << s.isPowerOfTwo(16);
     return 0;
 }
+
+/*
+class Solution {
+public:
+    bool por(int num) {
+        int bit =0;
+        while (num != 0 && bit ==0)
+        {
+            bit = (num >>1) & 1;
+            if(num == 1) return true;
+            num = num >>1;
+        }
+        return false;
+    }
+}; */

@@ -8,15 +8,17 @@ int main()
 {
     int option = -1;
     binaryTree bnTree;
-    while (option != 5 and option != 0)
+    while (option != 11 and option != 0)
     {
         cout << "\n* Binary Tree(linkedList) *\n";
         cout << "\nSelect Opration to perform on Binary Tree!\n";
         cout << "\n1 : Insert Element. \n";
         // cout << "\n2 : Delete Element.\n";
-        cout << "\n3 : Print Binary Tree.\n";
-        cout << "\n4 : Search Element.\n";
-        cout << "\n5 : Exit Program!.\n";
+        cout << "\n3 : Minimum Element in BST.\n";
+        cout << "\n4 : Maximum Element in BST.\n";
+        cout << "\n5 : Print Binary Tree.\n";
+        cout << "\n6 : Search Element.\n";
+        cout << "\n11 : Exit Program!.\n";
         cout << "\nSELECT Option : ";
         cin >> option;
         int i = 0;
@@ -48,8 +50,25 @@ int main()
 
         case 3:
         {
+            cout << "Minimum Element is: " << bnTree.minElem();
+            cout << "\nPress Enter to Continue...";
+            getchar();
+            getchar();
+            break;
+        }
+        case 4:
+        {
+            cout << "Maximum Element is: " << bnTree.maxElem();
+            cout << "\nPress Enter to Continue...";
+            getchar();
+            getchar();
+            break;
+        }
+
+        case 5:
+        {
             int opt = 1;
-            cout << "\n1. Level \n2. InOrder \n3. PreOrder \n4. PostOrder\n";
+            cout << "\n1. Level \n2. PreOrder \n3. InOrder \n4. PostOrder\n";
             cout << "\nSelect Print Pattern :";
             cin >> opt;
             switch (opt)
@@ -58,10 +77,10 @@ int main()
                 bnTree.printLevel();
                 break;
             case 2:
-                bnTree.printInOrder(bnTree.getRoot());
+                bnTree.printPreOrder(bnTree.getRoot());
                 break;
             case 3:
-                bnTree.printPreOrder(bnTree.getRoot());
+                bnTree.printInOrder(bnTree.getRoot());
                 break;
             case 4:
                 bnTree.PrintPostOrder(bnTree.getRoot());
@@ -77,7 +96,7 @@ int main()
             break;
         }
 
-        case 4:
+        case 6:
         {
             int i;
             cout << "Enter Element to be searched :";
@@ -92,7 +111,7 @@ int main()
             break;
         }
 
-        case 5:
+        case 11:
         {
             cout << "\nExiting Program!!!\n";
             // deallocation...
@@ -109,6 +128,7 @@ int main()
         }
         }
     }
+    deallocNodes(bnTree.getRoot());
 
     return 0;
 }

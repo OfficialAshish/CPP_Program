@@ -104,12 +104,17 @@ namespace nm_Radix__
                 arr.push_back(rem);
                 dec /= 2;
             }
-            reverse(arr);
+            // reverse(arr);
             // converting to int
-            for (int i = 0; i < arr.size(); i++)
+            /* for (int i = 0; i < arr.size(); i++)
             {
                 answer = answer * 10 + arr[i];
+            } */
+            for (auto i = arr.end(); i != arr.begin() - 1; i--)
+            {
+                answer = (answer * 10) + *i;
             }
+
             return answer;
         }
         // overloading

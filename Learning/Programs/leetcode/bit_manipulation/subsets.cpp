@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
         {
             if (i & (1 << j))
             {
-                cout << arr[j];
+                cout << arr[j]; /* << ":" << (i & (1 << j)) << ","; */
             }
         }
         cout << endl;

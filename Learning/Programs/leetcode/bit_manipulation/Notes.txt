@@ -1,6 +1,0 @@
-power of 2 == 1<<n ;
-
-n ,n-1 is having complement bit before first first 1 from right..
-so, n = n&(n-1) makes the right most one bit to zero..
-
-Always use paranthesis btw << and &^| ...
