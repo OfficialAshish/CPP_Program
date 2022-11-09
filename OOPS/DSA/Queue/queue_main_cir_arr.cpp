@@ -1,5 +1,4 @@
 #include <iostream>
-#include "queue_ll.h"
 #define SIZE 4
 using namespace std;
 
@@ -65,15 +64,16 @@ public:
             return tmpout;
         }
     }
-    void print()//issue
+    void print() // issue
     {
         int i;
         cout << "\nQueue is :\n { ";
-        for (int i = front; i != rear; i = i + (front + 1) % SIZE)
+        // for (i = front; i != rear; i = i + (front + 1) % SIZE)
+        for (int i = 0; i < SIZE; i++)
         {
             cout << arr[i] << " ,";
         }
-        cout << arr[i] << " ,";//equal fr == rear/
+        cout << arr[i] << " ,"; // equal fr == rear/
         cout << " }\n";
     }
 };
@@ -128,7 +128,7 @@ int main()
             getchar();
             break;
         case 5:
-            cArr.print();//error
+            cArr.print(); // error
             getchar();
             cout << "\nPress Enter to Continue...";
             getchar();

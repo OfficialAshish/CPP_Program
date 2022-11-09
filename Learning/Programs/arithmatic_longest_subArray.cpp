@@ -8,7 +8,7 @@ int main()
 {
     // int array[SIZE] = {1, 3, 5, 6, 7, 8, 10, 12, 14, 16};
 
-    vector<int> array({1, 3, 5, 6, 7, 8, 10, 12, 14, 16, 5, 4, 3, 2, 1,0});
+    vector<int> array = {1, 3, 5, 6, 7, 8, 10, 12, 14, 16, 5, 4, 3, 2, 1, 0};
 
     int newCount = 0, prevCount = 0;
     int begin = 0, end = 0;
@@ -29,7 +29,7 @@ int main()
             begin = i - newCount;
             end = i + 1; //(newCount + 2) - 1 + (i - newCount);
             // cout << "\n"
-                //  << begin << "&" << end << endl;
+            //  << begin << "&" << end << endl;
             prevCount = newCount;
         }
     }
