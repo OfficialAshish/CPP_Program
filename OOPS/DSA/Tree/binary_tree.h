@@ -1,7 +1,7 @@
 #if !defined(_binary_tree_)
 #define _binary_tree_
 #include <queue>
-#include <stack>
+// #include <stack>
 using namespace std;
 
 namespace nm_binary_tree
@@ -81,6 +81,7 @@ namespace nm_binary_tree
         int minElem();
         int maxElem();
         bool searchElem(int);
+        bool searchElemRec(tNode *, int);
         void printLevel();           // breath first
         void printPreOrder(tNode *); // depth first (3 Types)
         void printInOrder(tNode *);
@@ -158,6 +159,21 @@ namespace nm_binary_tree
                 tmproot = tmproot->rightNode;
         }
         return false;
+    }
+
+    bool binaryTree::searchElemRec(tNode *tmproot, int dt)
+    {
+        if (tmproot)
+        {
+            if (dt == tmproot->data)
+                return true;
+            else if (dt < tmproot->data)
+                searchElemRec(tmproot->leftNode, dt);
+            else
+                searchElemRec(tmproot->rightNode, dt);
+        }
+        else
+            return false;
     }
 
     int binaryTree::minElem()

@@ -5,6 +5,9 @@ Testing/
 # Learning/Programs/leetcode/
 
 notes.txt
+*.doc
+*.tmp
+
 
 # OOPS/DSA/Expression_fix/
 OOPS/DSA/Linked_List/Test/
@@ -13,7 +16,7 @@ OOPS/DSA/Linked_List/Test/
 Template/
 Templates/
 
-#code
+#Project_code
 shop_management.cpp
 shop_management_file.cpp
 

@@ -20,7 +20,7 @@ namespace nm_Radix__
         {
             int length = arr.size();
 
-            for (auto i = 0; i < length / 2; i++)
+            for (int i = 0; i < length / 2; i++)
             {
                 auto temp = arr[i];
                 arr[i] = arr[length - i - 1];

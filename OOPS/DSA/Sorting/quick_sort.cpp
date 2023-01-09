@@ -6,17 +6,17 @@ void printArr(int ar[], int l)
     cout << endl;
     for (int i = 0; i < l; i++)
     {
-        cout << ", " << ar[i];
+        cout << ar[i] << ", ";
     }
 }
-void swap(int *a, int *b)
+void swap(int &a, int &b)
 {
-    int tmp = *a;
-    *a = *b;
-    *b = tmp;
+    int tmp = a;
+    a = b;
+    b = tmp;
 }
 
-int partition(int ar[], int lf, int rt)
+/* int partition(int ar[], int lf, int rt)
 {
     int i = lf, j = rt;
     int pivot = ar[lf];
@@ -30,13 +30,42 @@ int partition(int ar[], int lf, int rt)
             j--;
         if (ar[i] > ar[j] && i < j)
         {
-            swap(&ar[i], &ar[j]);
+            swap(ar[i], ar[j]);
         }
     }
     swap(ar[lf], ar[j]);
     // cout << "\nPivot:" << pivot;
     // printArr(ar, 8);
     return j;
+}
+ */
+
+int partition(int *ar, int lf, int rt)
+{
+    int pivot = ar[lf];
+    int pivIndex = 0, count = 0;
+    for (int i = lf; i <= rt; i++)
+    {
+        if (pivot > ar[i])
+            count++;
+    }
+    pivIndex = lf + count;
+    swap(ar[pivIndex], ar[lf]);
+
+    while (lf < pivIndex && rt > pivIndex)
+    {
+        while (ar[lf] < pivot)
+            lf++;
+        while (ar[rt] > pivot)
+            rt--;
+        if (lf < pivIndex && rt > pivIndex)
+        {
+            swap(ar[lf], ar[rt]);
+        }
+    }
+    // cout << "\nPivot:" << pivot;
+    // printArr(ar, 8);
+    return pivIndex;
 }
 
 void quickSort(int ar[], int left, int right)

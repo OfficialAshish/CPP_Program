@@ -101,7 +101,7 @@ int main()
             int i;
             cout << "Enter Element to be searched :";
             cin >> i;
-            if (bnTree.searchElem(i))
+            if (bnTree.searchElemRec(bnTree.getRoot(), i))
                 cout << "Found";
             else
                 cout << "Not Found";

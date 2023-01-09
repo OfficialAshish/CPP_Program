@@ -136,7 +136,7 @@ namespace nm_sorting_
             }
         }
 
-        void mergeSort(vector<int> &arr, int l, int r)
+        void mergeSort(vector<int> &arr, int l, int r) // r=size
         {
             if (l < r)
             {

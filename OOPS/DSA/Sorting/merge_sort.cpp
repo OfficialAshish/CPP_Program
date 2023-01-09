@@ -20,30 +20,7 @@ void merge(int arr[], int l, int mid, int r)
     }
 
     int i = 0, j = 0, k = l;
-    /*
-    while (i + j < n1 + n2)
-    {
-        if (i == n1)
-        {
-            arr[k++] = na_2[j++];
-        }
-        else if (j == n2)
-        {
-            arr[k++] = na_1[i++];
-        }
-        else if (na_1[i] < na_2[j])
-        {
-            arr[k++] = na_1[i++];
-        }
-        else if (na_2[j] < na_1[i])
-        {
-            arr[k++] = na_2[j++];
-        }
-        else
-        {
-            cout << "\nError! @merge\n";
-        }
-    }*/
+
     while (i < n1 and j < n2)
     {
         if (na_1[i] < na_2[j])
@@ -88,3 +65,28 @@ int main()
         cout << arr[i] << ", ";
     }
 }
+
+/*
+    while (i + j < n1 + n2)
+    {
+        if (i == n1)
+        {
+            arr[k++] = na_2[j++];
+        }
+        else if (j == n2)
+        {
+            arr[k++] = na_1[i++];
+        }
+        else if (na_1[i] < na_2[j])
+        {
+            arr[k++] = na_1[i++];
+        }
+        else if (na_2[j] < na_1[i])
+        {
+            arr[k++] = na_2[j++];
+        }
+        else
+        {
+            cout << "\nError! @merge\n";
+        }
+    }*/

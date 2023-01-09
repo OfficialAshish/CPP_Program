@@ -16,6 +16,7 @@ int main(int argc, char const *argv[])
 {
     Solution s;
     std::cout << s.isPowerOfTwo(16);
+    
     // cout << por(16);
     return 0;
 }

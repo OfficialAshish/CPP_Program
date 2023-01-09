@@ -49,5 +49,7 @@ int main(int argc, char const *argv[])
     string str = "ABC";
     // substring(str, "");
     substring(str);
+
+    // cout<<"\noriginal:"<<str; 
     return 0;
 }

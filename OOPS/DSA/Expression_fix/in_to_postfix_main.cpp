@@ -31,7 +31,7 @@ string expToPostfix(string exp)
                 result = result + fixConv.top();
                 fixConv.pop();
             }
-            fixConv.push(exp[i]); // cox its next exp is not known ,weather big/smaller
+            fixConv.push(exp[i]); // coz its previous small presidence oprt are poped
         }
         // else
     }

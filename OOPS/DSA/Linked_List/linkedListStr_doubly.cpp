@@ -37,7 +37,7 @@ Node *allocNodes()
     tmpNode->data = nm;
     tmpNode->nextNode = NULL;
     tmpNode->prevNode = NULL;
-    cout << "S";
+    // cout << "S";
 
     return tmpNode;
 }
@@ -64,12 +64,13 @@ public:
     ~List() { cout << "\nList Remvd..\n"; }
 
     Node *getHead() { return listHead; }
+    Node *&setHead() { return listHead; }
     Node *getTail() { return listTail; }
     int getTotalNd() { return countNodes; }
 
     void addingNodes();
     void addNode();    // beginning addition
-    void addNode(int); // overload for between addition.. (alternative by default parameter 0)
+    void addNode(int); // overload for between addition.. (alternative-> by default parameter 0)
     void addNodeEnd();
 
     void printList();
@@ -78,12 +79,13 @@ public:
     void deleteNode();
     void updateData();
     void reverseList();
+    Node *reverseList(Node *);
 };
 void List::addNode()
 {
     Node *newNode = allocNodes();
     Node *tmpHead = getHead();
-    if (!tmpHead) // without this it won't works
+    if (!tmpHead) // without !this it won't works
     {
         listHead = newNode;
         listTail = newNode;
@@ -158,8 +160,8 @@ void List::addingNodes()
         case 1:
         {
             addNode();
+            break;
         }
-        break;
         case 2:
         {
             int n = 0;
@@ -200,6 +202,11 @@ void List::addingNodes()
 }
 void List::deleteNode()
 {
+    if (countNodes == 0)
+    {
+        cout << "\nList is Empty ...\n";
+        return;
+    }
 againPos:
     Node *tmpHead = getHead();
     int n = countNodes;
@@ -213,6 +220,7 @@ againPos:
         tmpHead->nextNode->prevNode = tmpHead->prevNode;
         tmpHead->prevNode->nextNode = tmpHead->nextNode;
         delete tmpHead;
+        countNodes--;
         cout << "Deleted!\n";
     }
     else if (n == 1)
@@ -221,6 +229,7 @@ againPos:
         {
             listHead = NULL;
             delete tmpHead;
+            countNodes--;
             cout << "Deleted!\n";
         }
         else
@@ -228,6 +237,7 @@ againPos:
             listHead = tmpHead->nextNode;
             listHead->prevNode = NULL;
             delete tmpHead;
+            countNodes--;
             cout << "Deleted!\n";
         }
     }
@@ -238,6 +248,7 @@ againPos:
         {
             listTail = NULL;
             delete tmptail;
+            countNodes--;
             cout << "Deleted!\n";
         }
         else
@@ -245,13 +256,9 @@ againPos:
             listTail = listTail->prevNode;
             listTail->nextNode = NULL;
             delete tmptail;
+            countNodes--;
             cout << "Deleted!\n";
         }
-    }
-    else if (n == 0)
-    {
-        cout << "\nList is Empty ...\n";
-        return;
     }
     else
     {
@@ -282,6 +289,18 @@ void List::updateData()
     for (int count = 1; count++ <= n - 1; tmpHead = tmpHead->nextNode)
         ;
     tmpHead->data = str;
+}
+
+Node *List::reverseList(Node *head)
+{
+    if (head->nextNode == NULL)
+    {
+        return head;
+    }
+    Node *currHead = reverseList(head->nextNode);
+    head->nextNode->nextNode = head;
+    head->nextNode = NULL;
+    return currHead;
 }
 
 /* void List::reverseList()
@@ -391,10 +410,15 @@ int main()
             break;
         case 5:
             // lst.reverseList();
-            getchar();
-            cout << "\n(WORKING...)Press Enter to Continue...";
-            getchar();
-            break;
+            {
+                Node *&setNewHead = lst.setHead();
+                // Node *head = setNewHead;
+                setNewHead = lst.reverseList(setNewHead);
+                getchar();
+                cout << "\n(WORKING...)Press Enter to Continue...";
+                getchar();
+                break;
+            }
         case 6:
             cout << "\nReverse List : { ";
             lst.printRev(lst.getHead());

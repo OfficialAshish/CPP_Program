@@ -62,6 +62,7 @@ namespace nm_linkedList
         ~List() { cout << "\nList Remv.\n"; }
 
         Node *getHead() { return listHead; }
+        Node *&setHead() { return listHead; }
         int getNodesTot() { return countNodes; }
 
         void addingNodes();
@@ -74,6 +75,7 @@ namespace nm_linkedList
         void printListReverse(Node *nd);
 
         void reverseList();
+        Node *reverseListR(Node *);
         // void sortList();
     };
 
@@ -258,9 +260,23 @@ namespace nm_linkedList
         cout << nd->info << ", ";
     }
 
+    Node *List::reverseListR(Node *head)
+    {
+        if (head->nextNode == NULL)
+        {
+            return head;
+        }
+        Node *currHead = reverseListR(head->nextNode);
+        head->nextNode->nextNode = head;
+        head->nextNode = NULL;
+        return currHead;
+    }
     void List::reverseList()
     {
-        Node *tmpHead = listHead;
+        Node *&newHead = setHead();
+        newHead = reverseListR(newHead);
+
+        /* Node *tmpHead = listHead;
         Node *prevNd = NULL;
         while (tmpHead)
         {
@@ -269,7 +285,7 @@ namespace nm_linkedList
             prevNd = tmpHead;
             tmpHead = nextNd;
         }
-        listHead = prevNd;
+        listHead = prevNd; */
     }
 
 } // namespace nm_linkedList

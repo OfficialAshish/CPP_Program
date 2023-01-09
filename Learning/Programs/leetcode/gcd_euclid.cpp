@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
         m = n;
         n = tmp;
     }
-    while (n != 0)
+    while (n != 0)//n or rem
     {
         int rem = m % n;
         m = n;
