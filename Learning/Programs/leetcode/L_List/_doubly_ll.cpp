@@ -291,7 +291,7 @@ void List::updateData()
     tmpHead->data = str;
 }
 
-void List::reverseList()
+/* void List::reverseList()
 {
     Node *tmp = getHead();
     Node *tmpNext = tmp;
@@ -306,7 +306,7 @@ void List::reverseList()
         tmp->prevNode = tmpSwap;
     }
     cout << "\nDone...\n";
-}
+} */
 
 Node *List::reverseList(Node *head)
 {
