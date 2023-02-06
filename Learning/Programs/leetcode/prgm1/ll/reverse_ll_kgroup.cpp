@@ -36,6 +36,58 @@ public:
     }
 
 public:
+    ListNode *deleteDuplicates(ListNode *head)
+    {
+        ListNode *answer = new ListNode(0);
+        ListNode *curr = answer;
+
+        while (head)
+        {
+            bool flag = false;
+            while (head->next && head->val == head->next->val)
+            {
+                flag = true;
+                head = head->next;
+            }
+            if (!flag)
+            {
+                curr->next = head;
+                curr = head;
+                head = head->next;
+                curr->next = nullptr;
+            }
+            else
+            {
+                head = head->next;
+            }
+        }
+        return answer->next;
+    }
+    ListNode *deleteDuplicates(ListNode *head)
+    {
+        /* if head = NULL */
+        if (!head)
+            return head;
+        /* setting the curr at head */
+        ListNode *curr = head;
+        while (curr->next)
+        {
+            /* if curr value == curr next value the we have to delete next value */
+            if (curr->val == curr->next->val)
+            {
+                /* stroing next address for deleting further */
+                ListNode *temp = curr->next;
+
+                /* changing curr pointer to next of next */
+                curr->next = curr->next->next;
+                delete temp;
+            }
+            else
+                curr = curr->next;
+        }
+        return head;
+    }
+
     ListNode *reverseKGroup(ListNode *head, int k)
     {
         if (head == nullptr or head->next == nullptr)
