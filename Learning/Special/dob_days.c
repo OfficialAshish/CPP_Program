@@ -65,7 +65,11 @@ int uptoNextYear(int *from_d, int *upto_d)
         exit(1);
     }
 
-    if (n_yy == p_yy)
+    if (n_yy == p_yy && upto_d != NULL) // upto_d , to avoid 365+ for same year
+    {
+        return 0;
+    }
+    else if (n_yy == p_yy)
     {
         goto currentYear;
     }
@@ -202,13 +206,14 @@ int main()
     printf("\nEnter DOB in dd mm yy format:\t");
     scanf("%d%d%d", &dd, &mm, &yy);
 
+    setTimeP(); // set present today's date
+
     int leapYear = 0, counter = yy;
     while (counter++ <= p_yy - 1)
     {
         if (checkLeapYear(counter) == 1)
             leapYear += 1;
     }
-    setTimeP();
 
     // days upto next year, from birth year
     int nyd = 0;
