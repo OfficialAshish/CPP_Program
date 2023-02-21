@@ -1,13 +1,14 @@
 .vscode
 
-Testing/
+# Testing/
 # Learning/
 # Learning/Programs/leetcode/
 
-notes.txt
-*.doc
+Test*
+*test*
+
+note*
 *.tmp
-test*.cpp
 
 # OOPS/DSA/Expression_fix/
 OOPS/DSA/Linked_List/Test/
