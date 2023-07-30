@@ -34,7 +34,7 @@ int checkLeapYear(int i)
 int uptoNextYear(int *from_d, int *upto_d)
 {
     int dd = from_d[0], mm = from_d[1], yy = from_d[2];
-    int n_dd = p_dd, n_mm = p_mm, n_yy = p_yy;
+    int n_dd = p_dd, n_mm = p_mm, n_yy = p_yy; // present date
     int curDays = 0, m = 1;
     if (upto_d)
     {

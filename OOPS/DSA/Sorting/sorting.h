@@ -140,7 +140,7 @@ namespace nm_sorting_
         {
             if (l < r)
             {
-                int mid = (l + r) / 2;
+                int mid = ((r - l) / 2) + l;
                 mergeSort(arr, l, mid);
                 mergeSort(arr, mid + 1, r);
 

@@ -46,7 +46,7 @@ void mergeSort(int arr[], int lf, int rt)
 {
     if (lf < rt)
     {
-        int mid = (lf + rt) / 2;
+        int mid = ((rt - lf) / 2) + lf;
         mergeSort(arr, lf, mid);
         mergeSort(arr, mid + 1, rt);
 
@@ -58,7 +58,7 @@ int main()
 {
     int arr[] = {5, 2, 6, 9, 1, 7};
     int N = 6;
-    mergeSort(arr, 0, 6);
+    mergeSort(arr, 0, 5);
     cout << N << endl;
     for (int i = 0; i < N; i++)
     {

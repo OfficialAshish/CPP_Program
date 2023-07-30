@@ -1,7 +1,9 @@
 #if !defined(_binary_tree_)
 #define _binary_tree_
+
 #include <queue>
 // #include <stack>
+
 using namespace std;
 
 namespace nm_binary_tree
