@@ -5,7 +5,7 @@ using namespace std;
 
 bool isPossible(vector<vector<int>> mat, vector<vector<int>> &visited, int x = 0, int y = 0)
 {
-    if ((x >= 0 and x < mat.size()) and (x >= 0 and x < mat.size()) and (visited[x][y] == 0) and mat[x][y] == 1)
+    if ((x >= 0 and x < mat.size()) and (visited[x][y] == 0) and mat[x][y] == 1)
         return true;
     else
         false;

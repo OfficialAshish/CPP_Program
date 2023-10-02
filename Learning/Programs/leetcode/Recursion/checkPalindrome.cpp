@@ -14,6 +14,7 @@ using namespace std;
     return isPalindrome(s, t + 1);
 }
  */
+#include <bits/stdc++.h> 
 
 bool isPalindrome(string s, int start, int end)
 {
@@ -26,6 +27,18 @@ bool isPalindrome(string s, int start, int end)
         return false;
     }
     return isPalindrome(s, start + 1, end - 1);
+}
+
+bool checkPalindrome(string s)
+{
+    string nw = "";
+    for(int i=0; i<s.size(); i++)
+    {
+        if ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z')
+        || (s[i] >= '0' && s[i] <= '9') )
+            nw += tolower(s[i]);
+    }
+    return isPalindrome(nw, 0, nw.size() - 1);
 }
 
 int main(int argc, char const *argv[])

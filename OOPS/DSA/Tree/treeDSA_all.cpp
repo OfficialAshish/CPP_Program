@@ -937,12 +937,14 @@ int main()
     // int sz = sizeof(ar) / sizeof(ar[0]);
     // bnt = buildTreeAr(bnt, ar, sz); // Error in this
 
-    // vector<vector<int>> lv = levelOrderReverse(bnt);
-    // for (auto &&i : lv)
-    //     for (auto &&j : i)
-    //         cout << j << ',';
-
     levelTraversal(bnt);
+    
+    cout<<"\nlevel order reverse :\n";
+    vector<vector<int>> lv = levelOrderReverse(bnt);
+    for (auto &&i : lv)
+        for (auto &&j : i)
+            cout << j << ',';
+
 
     pair<int, int> ansPS = getMaxSumNonAdj(bnt);
     printf("\nSum of all level nodes (Including root) : %d,\n( excluding root ): %d\n", ansPS.first, ansPS.second);
