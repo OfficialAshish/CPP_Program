@@ -68,6 +68,26 @@ int partition(int *ar, int lf, int rt)
     return pivIndex;
 }
 
+/* 
+int partition(vector<int>& ar, int lf, int rt)
+{
+    int pivot = ar[lf];
+    int pivIndex = lf;
+    
+    for (int i = lf + 1; i <= rt; i++)
+    {
+        if (ar[i] < pivot)
+        {
+            pivIndex++;
+            swap(ar[pivIndex], ar[i]);
+        }
+    }
+    
+    swap(ar[lf], ar[pivIndex]);
+    return pivIndex;
+}
+ */
+
 void quickSort(int ar[], int left, int right)
 {
     if (left < right)

@@ -169,20 +169,14 @@ namespace nm_Radix__
             string temp = "";
             vector<string> arr;
             int rem = 0;
-            while (dec > 0)
+            for (int rem = 0; dec > 0; dec /= 16)
             {
                 rem = dec % 16;
                 if (rem >= 10)
-                {
-                    temp = rem - 10 + 'A';
-                }
+                    temp = rem - 10 + 'a';
                 else
-                {
-                    temp = to_string(rem);
-                }
-
+                    temp = rem + '0';
                 arr.push_back(temp);
-                dec /= 16;
             }
             reverse(arr);
             // converting to str

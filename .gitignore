@@ -18,6 +18,6 @@ Template/
 Templates/
 
 #Project_code
-shop_management.cpp
+# shop_management.cpp
 shop_management_file.cpp
 
