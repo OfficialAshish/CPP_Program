@@ -10,11 +10,14 @@ Test*
 note*
 *.tmp
 
+*.exe
+
 # OOPS/DSA/Expression_fix/
 OOPS/DSA/Linked_List/Test/
+sorting2.h
 
 #hide all templates
-Template/
+# Template/
 Templates/
 
 #Project_code

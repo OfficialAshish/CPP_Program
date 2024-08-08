@@ -3,7 +3,7 @@
 using namespace std;
 
 bool isPossible(vector<int> arr, int m, int n, int mid)
-{
+{ 
     int sum = 0;
     int studentNext = 1;
     for (int i = 0; i < n; i++)
