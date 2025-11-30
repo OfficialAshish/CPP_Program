@@ -18,9 +18,9 @@ sorting2.h
 
 #hide all templates
 # Template/
-Templates/
+# Templates/
 
 #Project_code
-shop_management.cpp
-shop_management_file.cpp
+# shop_management.cpp
+# shop_management_file.cpp
 
